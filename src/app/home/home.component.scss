@@ -1,0 +1,14 @@
+.container1{
+    margin: 0 auto;
+    height: 100vh;
+    //display: flex;
+    min-width: 1080px;
+    overflow-x: auto;
+        .button{
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            padding: 10px 24px;
+            cursor: pointer;
+        }
+    }

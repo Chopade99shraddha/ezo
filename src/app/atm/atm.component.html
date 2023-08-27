@@ -1,0 +1,42 @@
+
+<div class="atm-container">
+    <h2>ATM Simulator</h2>
+    <div class="deposit-section">
+      <h3>Deposit Money</h3>
+      <table>
+      <tr class="denomination" *ngFor="let denomination of [2000, 500, 200, 100]">
+        <td class="label">{{ denomination }}:</td>
+        <td>{{ availableNotes[denomination] }} </td>
+      <td> <input type="number" [(ngModel)]="depositDenominations[denomination]" min="0" step="1"> </td>
+        <button class="button" (click)="deposit(denomination, depositDenominations[denomination])">Deposit</button>
+      </tr>
+      <tr>
+        <td>Total</td>
+        <td>{{total}}</td>
+        
+      </tr>
+    </table>
+    </div>
+    <div class="withdraw-section">
+      <h3>Withdraw Money</h3>
+      <input type="number" [(ngModel)]="withdrawalAmount" min="0" step="1">
+      <button (click)="withdraw(withdrawalAmount)">Withdraw</button>
+      <!-- <p class="error-message">{{ withdrawalError }}</p> -->
+      <p class="withdrawn-denominations" *ngIf="withdrawalAmount > 0">
+        Withdrawn Denominations:
+        <span *ngFor="let denomination of [2000, 500, 200, 100]">
+          <span *ngIf="withdrawalDenominations[denomination] > 0">
+            {{ withdrawalDenominations[denomination] }} x {{ denomination }}
+          </span>
+        </span>
+      </p>
+    </div>
+  
+    <div class="balance-section">
+      <h3>Logs</h3>
+
+     <p *ngFor="let log of logs">{{log}}</p>
+    </div>
+  </div> 
+  
+
